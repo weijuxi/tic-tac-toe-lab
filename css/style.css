@@ -5,10 +5,19 @@ body {
     margin: 0;
   }
   
+h1 {
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+  }
+  
   .board {
     display: flex;
     flex-wrap: wrap;
     width: 325px;
+    margin: 0 auto;
   }
   
   .sqr {
