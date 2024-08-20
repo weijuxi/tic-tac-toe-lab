@@ -78,33 +78,19 @@ const placePiece = (idx) => {
 };
 
 const checkForTie = () => {
-    if(
-		(board[0] !== '' && board[0] === board[1] && board[0] === board[2]) ||
-		(board[3] !== '' && board[3] === board[4] && board[3] === board[5]) ||
-		(board[6] !== '' && board[6] === board[7] && board[6] === board[8]) ||
-		(board[0] !== '' && board[0] === board[3] && board[0] === board[6]) ||
-		(board[1] !== '' && board[1] === board[4] && board[1] === board[7]) ||
-		(board[2] !== '' && board[2] === board[5] && board[2] === board[8]) ||
-		(board[0] !== '' && board[0] === board[4] && board[0] === board[8]) ||
-		(board[2] !== '' && board[2] === board[4] && board[2] === board[6])
-	) {
-		winner = true;
-	}
-};
+    if (board.includes('')) {
+        tie = false;
+    } else {
+        tie = true;
+    }
+}
 
 const checkForWinner = () => {
-    if(
-		(board[0] !== '' && board[0] === board[1] && board[0] === board[2]) ||
-		(board[3] !== '' && board[3] === board[4] && board[3] === board[5]) ||
-		(board[6] !== '' && board[6] === board[7] && board[6] === board[8]) ||
-		(board[0] !== '' && board[0] === board[3] && board[0] === board[6]) ||
-		(board[1] !== '' && board[1] === board[4] && board[1] === board[7]) ||
-		(board[2] !== '' && board[2] === board[5] && board[2] === board[8]) ||
-		(board[0] !== '' && board[0] === board[4] && board[0] === board[8]) ||
-		(board[2] !== '' && board[2] === board[4] && board[2] === board[6])
-	) {
-		winner = true;
-	}
+    for (let i = 0; i < winningCombos.length; i++) {
+        if (board[winningCombos[i][0]] === turn && board[winningCombos[i][1]] === turn && board[winningCombos[i][2]] === turn) {
+            win = true;
+        }
+    }
 };
   
 const switchPlayerTurn = () => {
